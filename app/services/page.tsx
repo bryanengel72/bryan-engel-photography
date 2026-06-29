@@ -49,7 +49,7 @@ const packages = [
 const faqs = [
   {
     q: "When should we schedule relative to my show?",
-    a: "Most competitors book within the final week before their show, when conditioning peaks. We can also shoot the morning of or after the event. Reach out early — peak-week dates are limited.",
+    a: "I recommend shooting about two weeks out from your show, or a couple of days after it. You're peeled and full at both points — but in the final week the face often looks drawn and sunken from depletion and water manipulation. Two weeks out (or just after the stage) gives you peak conditioning with a healthier, sharper-looking face. Reach out early — these dates fill fast.",
   },
   {
     q: "Which divisions do you photograph?",
