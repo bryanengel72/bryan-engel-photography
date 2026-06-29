@@ -19,8 +19,10 @@ export default function PortfolioPage() {
           Athletes at their sharpest
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-muted">
-          A selection of competition, posing, and physique work shot across {site.location.city}{" "}
-          and the surrounding area. Tap any image to view it full screen.
+          A selection of competition, posing, and physique work from my portfolio —
+          bodybuilding, bikini, figure, and men&apos;s physique athletes at their sharpest.
+          Now based in {site.location.city}, booking local competitors. Tap any image to
+          view it full screen.
         </p>
       </header>
       <Gallery photos={photos} />

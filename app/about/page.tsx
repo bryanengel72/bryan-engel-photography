@@ -31,8 +31,8 @@ export default function AboutPage() {
           </h1>
           <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted">
             <p>
-              I&apos;m Bryan Engel, a fitness and physique photographer based in{" "}
-              {site.location.city}, {site.location.regionFull}. I work with the athletes most
+              I&apos;m Bryan Engel, an experienced fitness and physique photographer now based
+              in {site.location.city}, {site.location.regionFull}. I work with the athletes most
               photographers overlook — the ones who diet for sixteen weeks, train before
               sunrise, and walk on stage to be judged on every detail.
             </p>
