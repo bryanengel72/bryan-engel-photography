@@ -49,8 +49,8 @@ export const site = {
     youtube: "",
   },
 
-  // Brand color used for accents (warm amber pulled from the stage/rust tones).
-  accent: "#c9962f",
+  // Brand color used for accents (crimson / oxblood — athletic intensity).
+  accent: "#b11e2f",
 } as const;
 
 export const navLinks = [

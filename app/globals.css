@@ -6,8 +6,11 @@
   --color-stone: #1d1d20;
   --color-bone: #f4f1ea;
   --color-muted: #9a958c;
-  --color-amber: #c9962f;
-  --color-amber-bright: #e0ac3d;
+  /* Accent: crimson / oxblood (the utility names stay "amber" so the markup
+     doesn't change — only these two hex values drive every accent on the site).
+     To go back to gold: #c9962f and #e0ac3d. */
+  --color-amber: #b11e2f;
+  --color-amber-bright: #d6303f;
 
   --font-display: var(--font-bebas), "Oswald", ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
