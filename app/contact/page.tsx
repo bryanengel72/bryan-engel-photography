@@ -1,0 +1,64 @@
+import type { Metadata } from "next";
+import { site } from "@/lib/site";
+import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: `Book a fitness or competition photography shoot with ${site.name} in ${site.location.city}. Tell me your division and show date and let's plan it.`,
+  alternates: { canonical: "/contact" },
+};
+
+export default function ContactPage() {
+  return (
+    <section className="mx-auto max-w-5xl px-6 pb-24 pt-36 lg:px-10">
+      <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr]">
+        <div>
+          <p className="eyebrow">Contact</p>
+          <h1 className="font-display mt-3 text-5xl text-bone sm:text-6xl">
+            Let&apos;s plan your shoot
+          </h1>
+          <p className="mt-5 text-lg leading-relaxed text-muted">
+            Booking peak-week dates early is the difference between getting your slot and
+            missing it. Pick a time below, or send a few details and I&apos;ll get back to you.
+          </p>
+
+          {site.bookingUrl && (
+            <a
+              href={site.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-block rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
+            >
+              Book Online →
+            </a>
+          )}
+
+          <div className="mt-8 space-y-3 text-sm">
+            <p className="text-muted">
+              Email{" "}
+              <a href={`mailto:${site.contact.email}`} className="text-amber hover:underline">
+                {site.contact.email}
+              </a>
+            </p>
+            {site.contact.phone && (
+              <p className="text-muted">
+                Call/text{" "}
+                <a href={`tel:${site.contact.phone}`} className="text-amber hover:underline">
+                  {site.contact.phone}
+                </a>
+              </p>
+            )}
+            <p className="text-muted">
+              Based in {site.location.city}, {site.location.regionFull} · serving{" "}
+              {site.location.serviceAreas.slice(0, 5).join(", ")} & beyond.
+            </p>
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-white/5 bg-charcoal p-8">
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  );
+}
