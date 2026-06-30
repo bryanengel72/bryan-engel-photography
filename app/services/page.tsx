@@ -11,23 +11,23 @@ export const metadata: Metadata = {
 const packages = [
   {
     name: "The Portrait",
-    price: "Starting at $250",
-    summary: "One hour, one location, one look. A focused session that captures where you are right now.",
+    price: "$300",
+    summary: "One location, one look. A focused session that captures where you are right now.",
     features: [
-      "60-minute session",
+      "90-minute session",
       "1 location, 1 outfit",
-      "5+ hand-edited high-res images",
+      "5 retouched high-res images",
       "Online gallery + social-ready crops",
     ],
   },
   {
     name: "The Session",
-    price: "Starting at $450",
+    price: "$525",
     summary: "The full picture. Multiple looks and locations that show the real work behind the physique.",
     features: [
-      "2–3 hour session",
+      "2-hour session",
       "1–2 locations, multiple outfit changes",
-      "10+ hand-edited high-res images",
+      "12 retouched high-res images",
       "Print release for personal use",
       "48-hour preview turnaround",
     ],
