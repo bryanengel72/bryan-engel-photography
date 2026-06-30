@@ -56,14 +56,12 @@ export default function Home() {
             {site.description}
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
             >
               Book Your Shoot
-            </a>
+            </Link>
             <Link
               href="/portfolio"
               className="rounded-full border border-bone/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-bone transition-colors hover:border-bone hover:bg-bone/5"

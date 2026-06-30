@@ -22,17 +22,6 @@ export default function ContactPage() {
             few details and I&apos;ll get back to you.
           </p>
 
-          {site.bookingUrl && (
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-block rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
-            >
-              Book Online →
-            </a>
-          )}
-
           <div className="mt-8 space-y-3 text-sm">
             <p className="text-muted">
               Email{" "}

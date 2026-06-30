@@ -39,7 +39,7 @@ export const site = {
 
   // ⬇️  Online booking link (Cal.com). "Book" buttons point here. Leave "" to
   //     fall back to the contact form.
-  bookingUrl: "https://cal.com/bryan-engel-amlxcu/fitness-shoot",
+  bookingUrl: "", // Contact form only — send booking link manually after confirming the shoot
 
   // ⬇️  Social links — leave "" to hide a given icon.
   social: {
