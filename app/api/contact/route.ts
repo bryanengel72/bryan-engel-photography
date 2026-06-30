@@ -6,24 +6,26 @@ export async function POST(request: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  try {
-    await resend.emails.send({
-      from: "Bryan Engel Photography <noreply@bryanengelphotography.com>",
-      to: "thebryanengel@gmail.com",
-      replyTo: email,
-      subject: `Shoot inquiry — ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Division: ${division || "Not specified"}`,
-        `Show / shoot date: ${date || "Not specified"}`,
-        "",
-        message,
-      ].join("\n"),
-    });
+  const { data, error } = await resend.emails.send({
+    from: "Bryan Engel Photography <noreply@bryanengelphotography.com>",
+    to: "thebryanengel@gmail.com",
+    replyTo: email,
+    subject: `Shoot inquiry — ${name}`,
+    text: [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Division: ${division || "Not specified"}`,
+      `Show / shoot date: ${date || "Not specified"}`,
+      "",
+      message,
+    ].join("\n"),
+  });
 
-    return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ ok: false }, { status: 500 });
+  if (error) {
+    console.error("Resend error:", JSON.stringify(error));
+    return NextResponse.json({ ok: false, error }, { status: 500 });
   }
+
+  console.log("Email sent:", data?.id);
+  return NextResponse.json({ ok: true });
 }
