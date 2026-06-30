@@ -40,7 +40,7 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
             key={p.src}
             onClick={() => setActive(i)}
             className="group relative block w-full overflow-hidden rounded-lg img-fallback focus:outline-none focus:ring-2 focus:ring-amber"
-            aria-label={`Open image: ${p.caption}`}
+            aria-label={`Open photo ${i + 1} full screen`}
           >
             <Image
               src={p.src}
