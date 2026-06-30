@@ -40,7 +40,7 @@ const packages = [
     features: [
       "Half or full-day shoot",
       "Multiple locations and looks",
-      "50+ hand-edited high-res images",
+      "Deliverables scoped to your project and usage",
       "Usage licensing for brands & sponsors",
       "Optional short-form video clips",
     ],
