@@ -16,7 +16,7 @@ const packages = [
     features: [
       "60-minute session",
       "1 location, 1 outfit",
-      "10+ hand-edited high-res images",
+      "5+ hand-edited high-res images",
       "Online gallery + social-ready crops",
     ],
   },
@@ -27,7 +27,7 @@ const packages = [
     features: [
       "2–3 hour session",
       "1–2 locations, multiple outfit changes",
-      "25+ hand-edited high-res images",
+      "10+ hand-edited high-res images",
       "Print release for personal use",
       "48-hour preview turnaround",
     ],
