@@ -14,7 +14,7 @@ import fs from "fs";
 import path from "path";
 import { site } from "./site";
 
-export type Photo = { src: string; alt: string; caption: string };
+export type Photo = { src: string; alt: string };
 
 // Rotating, SEO-friendly descriptions used when no override is set.
 const DESCRIPTORS = [
@@ -28,18 +28,7 @@ const DESCRIPTORS = [
   "Physique portrait highlighting stage-ready conditioning",
 ];
 
-const CAPTIONS = [
-  "Golden hour",
-  "Stage conditioning",
-  "On location",
-  "Symmetry & balance",
-  "Studio detail",
-  "Industrial light",
-  "Posing study",
-  "Stage-ready",
-];
-
-// Optional per-file overrides: { "photo-01.jpg": { alt: "...", caption: "..." } }
+// Optional per-file overrides: { "photo-01.jpg": { alt: "custom alt text" } }
 const OVERRIDES: Record<string, Partial<Photo>> = {};
 
 const IMAGE_RE = /\.(jpe?g|png|webp|avif)$/i;
@@ -61,7 +50,6 @@ export function getPhotos(): Photo[] {
       alt:
         o.alt ??
         `${DESCRIPTORS[i % DESCRIPTORS.length]} — ${site.name}, ${site.location.city} ${site.location.region}`,
-      caption: o.caption ?? CAPTIONS[i % CAPTIONS.length],
     };
   });
 }
