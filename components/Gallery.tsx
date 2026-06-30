@@ -50,10 +50,6 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="pointer-events-none absolute bottom-0 left-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="font-display text-xl text-bone">{p.caption}</p>
-            </div>
           </button>
         ))}
       </div>
@@ -89,12 +85,9 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
               width={0}
               height={0}
               sizes="100vw"
-              className="mx-auto max-h-[80vh] w-auto rounded-lg object-contain"
+              className="mx-auto max-h-[85vh] w-auto rounded-lg object-contain"
               priority
             />
-            <figcaption className="mt-4 text-center">
-              <p className="font-display text-2xl text-bone">{photos[active].caption}</p>
-            </figcaption>
           </figure>
           <button
             className="absolute right-3 top-1/2 -translate-y-1/2 px-4 text-5xl text-bone/60 transition-colors hover:text-bone sm:right-8"
