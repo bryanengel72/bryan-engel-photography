@@ -7,6 +7,7 @@ import { site, navLinks } from "@/lib/site";
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoOk, setLogoOk] = useState(true);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,19 +26,23 @@ export default function Nav() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         {/* LOGO — drop a file at public/logo.png to replace this wordmark */}
-        <Link href="/" className="group flex items-center gap-3" aria-label={site.name}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.png"
-            alt=""
-            aria-hidden="true"
-            className="h-9 w-auto"
-            onError={(e) => ((e.currentTarget.style.display = "none"))}
-          />
-          <span className="font-display text-2xl tracking-wide text-bone">
-            {site.shortName}
-            <span className="text-amber">.</span>
-          </span>
+        <Link href="/" className="flex items-center" aria-label={site.name}>
+          {logoOk ? (
+            /* White signature logo (public/logo.png). Falls back to the text
+               wordmark automatically if the image is ever missing. */
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src="/logo.png"
+              alt={site.name}
+              className="h-10 w-auto sm:h-11"
+              onError={() => setLogoOk(false)}
+            />
+          ) : (
+            <span className="font-display text-2xl tracking-wide text-bone">
+              {site.shortName}
+              <span className="text-amber">.</span>
+            </span>
+          )}
         </Link>
 
         {/* Desktop links */}

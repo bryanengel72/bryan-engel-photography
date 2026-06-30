@@ -10,10 +10,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <p className="font-display text-3xl text-bone">
-              {site.shortName}
-              <span className="text-amber">.</span>
-            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt={site.name} className="h-12 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               {site.tagline} based in {site.location.city}, {site.location.region}.
               Serving competitors across {site.location.serviceAreas.slice(0, 4).join(", ")} and beyond.
