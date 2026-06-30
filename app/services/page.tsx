@@ -4,43 +4,44 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services & Pricing",
-  description: `Fitness photography services from ${site.name}: competition prep shoots, stage-ready portfolios, and posing sessions for bodybuilding, bikini, figure, and men's physique competitors in ${site.location.city}.`,
+  description: `Fitness photography services from ${site.name}: editorial athlete portraits, physique sessions, and brand content for bodybuilding, bikini, figure, and men's physique athletes in ${site.location.city}.`,
   alternates: { canonical: "/services" },
 };
 
 const packages = [
   {
-    name: "Posing Session",
+    name: "The Portrait",
     price: "Starting at $250",
-    summary: "A focused studio or outdoor session built around your competition poses.",
+    summary: "One hour, one location, one look. A focused session that captures where you are right now.",
     features: [
-      "60–90 minute session",
-      "All mandatory poses for your division",
-      "15+ hand-edited high-res images",
+      "60-minute session",
+      "1 location, 1 outfit",
+      "10+ hand-edited high-res images",
       "Online gallery + social-ready crops",
     ],
   },
   {
-    name: "Competition Prep",
+    name: "The Session",
     price: "Starting at $450",
-    summary: "The full peak-week story — your conditioning documented at its best.",
+    summary: "The full picture. Multiple looks and locations that show the real work behind the physique.",
     features: [
-      "2-hour session, studio or on location",
-      "Multiple looks & outfit changes",
-      "30+ hand-edited high-res images",
+      "2–3 hour session",
+      "1–2 locations, multiple outfit changes",
+      "25+ hand-edited high-res images",
       "Print release for personal use",
       "48-hour preview turnaround",
     ],
     featured: true,
   },
   {
-    name: "Brand & Sponsor",
+    name: "The Campaign",
     price: "Let's talk",
-    summary: "Content built for sponsors, supplement brands, and athlete profiles.",
+    summary: "A half or full-day shoot built for coaches, personal trainers, and athletes with a brand to grow.",
     features: [
       "Half or full-day shoot",
-      "Lifestyle, gym, and physique sets",
-      "Usage licensing for brands",
+      "Multiple locations and looks",
+      "50+ hand-edited high-res images",
+      "Usage licensing for brands & sponsors",
       "Optional short-form video clips",
     ],
   },
@@ -48,20 +49,20 @@ const packages = [
 
 const faqs = [
   {
+    q: "Do I need to be stage-ready to shoot?",
+    a: "No — and that's kind of the point. These sessions are about documenting the real you: the athlete who shows up to the gym every day, not just the version that steps on stage. You can shoot mid-prep, off-season, or right around a show. The physique you've built tells a story at any point in the year.",
+  },
+  {
+    q: "What do I wear?",
+    a: "Your own clothes — whatever you'd actually train or live in. Joggers, a fitted hoodie, a sports bra, jeans. We're not working with competition suits or mandatories here. The goal is to show your conditioning through clothing and environment, not in spite of it.",
+  },
+  {
+    q: "Where do we shoot?",
+    a: "Studio, urban, industrial, outdoor — wherever fits your personality. San Diego has great variety: concrete and architecture downtown, natural light along the coast, gyms if that's your world. We'll figure out what works for your look before the shoot.",
+  },
+  {
     q: "When should we schedule relative to my show?",
-    a: "I recommend shooting about two weeks out from your show, or a couple of days after it. You're peeled and full at both points — but in the final week the face often looks drawn and sunken from depletion and water manipulation. Two weeks out (or just after the stage) gives you peak conditioning with a healthier, sharper-looking face. Reach out early — these dates fill fast.",
-  },
-  {
-    q: "Which divisions do you photograph?",
-    a: "All of them — men's and women's bodybuilding, classic physique, men's physique, bikini, figure, wellness, and fitness. If you compete, I can shoot it.",
-  },
-  {
-    q: "Do I need to be 'stage ready' to shoot?",
-    a: "Not at all. Plenty of athletes shoot in off-season or mid-prep for progress and content. That said, peak-week sessions produce the most dramatic conditioning shots.",
-  },
-  {
-    q: "Studio or outdoors?",
-    a: "Both are available. Studio gives controlled, dramatic lighting; outdoor and industrial locations add mood and texture. Many packages include a mix.",
+    a: "Two weeks out or a couple of days after are both great windows if you want peak conditioning. But you don't have to be show-ready — these sessions work year-round. Reach out whenever feels right and we'll find a date.",
   },
 ];
 
@@ -87,12 +88,12 @@ export default function ServicesPage() {
         <header className="mb-14 max-w-3xl">
           <p className="eyebrow">Services</p>
           <h1 className="font-display mt-3 text-5xl text-bone sm:text-6xl">
-            Shoots built around your prep
+            Sessions for athletes who put in the work
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted">
-            Every package is tailored to your division and timeline. Pricing below is a
-            starting point — message me with your show date and I&apos;ll put together a
-            quote that fits.
+            No stage suits, no mandatory poses. Just you, your own clothes, and the
+            physique you&apos;ve earned. Pricing below is a starting point — reach out
+            and I&apos;ll put together something that fits.
           </p>
         </header>
 
