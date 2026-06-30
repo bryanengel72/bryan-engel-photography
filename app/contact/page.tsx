@@ -18,8 +18,8 @@ export default function ContactPage() {
             Let&apos;s plan your shoot
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted">
-            Booking peak-week dates early is the difference between getting your slot and
-            missing it. Pick a time below, or send a few details and I&apos;ll get back to you.
+            Ready to document the work you&apos;ve put in? Pick a time below, or send a
+            few details and I&apos;ll get back to you.
           </p>
 
           {site.bookingUrl && (
