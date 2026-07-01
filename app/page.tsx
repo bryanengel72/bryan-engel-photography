@@ -62,7 +62,7 @@ export default function Home() {
           className="animate-kenburns object-cover object-center"
         />
         <div className="absolute inset-0 vignette" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/15" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 pt-24 lg:px-10">
           <p
@@ -72,7 +72,7 @@ export default function Home() {
             {site.location.city} · {site.location.regionFull}
           </p>
           <h1
-            className="font-display animate-hero-in max-w-3xl text-6xl text-bone drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)] sm:text-7xl lg:text-8xl"
+            className="font-display animate-hero-in max-w-2xl text-6xl text-bone drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)] sm:text-7xl lg:text-8xl"
             style={{ letterSpacing: "-0.02em", animationDelay: "80ms" }}
           >
             Built for the athletes
