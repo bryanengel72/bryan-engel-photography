@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { breadcrumbLd } from "@/lib/breadcrumb";
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -17,7 +18,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd("/contact", "Contact")) }}
       />
       <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr]">
-        <div>
+        <Reveal>
           <p className="eyebrow">Contact</p>
           <h1 className="font-display mt-3 text-5xl text-bone sm:text-6xl">
             Let&apos;s plan your shoot
@@ -47,11 +48,11 @@ export default function ContactPage() {
               {site.location.serviceAreas.slice(0, 5).join(", ")} & beyond.
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="rounded-2xl border border-white/5 bg-charcoal p-8">
+        <Reveal delay={120} className="rounded-2xl border border-white/5 bg-charcoal p-8">
           <ContactForm />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

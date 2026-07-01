@@ -51,7 +51,7 @@ export default function Nav() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="text-sm font-medium uppercase tracking-widest text-muted transition-colors hover:text-bone"
+                className="relative text-sm font-medium uppercase tracking-widest text-muted transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-amber after:transition-all after:duration-300 hover:text-bone hover:after:w-full"
               >
                 {l.label}
               </Link>
@@ -61,7 +61,7 @@ export default function Nav() {
             <a
               href={site.bookingUrl || "/contact"}
               {...(site.bookingUrl ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="rounded-full bg-amber px-5 py-2 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
+              className="rounded-full bg-amber px-5 py-2 text-sm font-semibold uppercase tracking-widest text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-bright hover:shadow-lg hover:shadow-amber/20 active:translate-y-0"
             >
               Book a Shoot
             </a>
@@ -84,8 +84,16 @@ export default function Nav() {
       </nav>
 
       {/* Mobile menu */}
-      {open && (
-        <ul className="flex flex-col gap-1 border-t border-white/5 px-6 pb-6 pt-2 md:hidden">
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-out md:hidden ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <ul
+          className={`flex min-h-0 flex-col gap-1 overflow-hidden border-t px-6 pb-6 pt-2 transition-[opacity,border-color] duration-200 ${
+            open ? "border-white/5 opacity-100" : "border-transparent opacity-0"
+          }`}
+        >
           {navLinks.map((l) => (
             <li key={l.href}>
               <Link
@@ -108,7 +116,7 @@ export default function Nav() {
             </a>
           </li>
         </ul>
-      )}
+      </div>
     </header>
   );
 }

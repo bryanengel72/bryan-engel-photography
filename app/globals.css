@@ -81,12 +81,6 @@ body {
   animation: hero-in 0.7s ease-out both;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-hero-in {
-    animation: none;
-  }
-}
-
 @keyframes scroll-cue {
   0%, 100% {
     transform: translateY(0);
@@ -100,4 +94,104 @@ body {
 
 .animate-scroll-cue {
   animation: scroll-cue 2s ease-in-out infinite;
+}
+
+/* Slow Ken Burns drift on the hero image */
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+/* Route fade-in on page mount */
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-page-in {
+  animation: page-in 0.35s ease-out both;
+}
+
+/* Lightbox overlay + image transitions */
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbox-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes lightbox-image-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-lightbox-in {
+  animation: lightbox-in 0.2s ease-out both;
+}
+
+.animate-lightbox-out {
+  animation: lightbox-out 0.2s ease-in both;
+}
+
+.animate-lightbox-image {
+  animation: lightbox-image-in 0.25s ease-out both;
+}
+
+/* Scroll-triggered reveal (see components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-in,
+  .animate-scroll-cue,
+  .animate-kenburns,
+  .animate-page-in,
+  .animate-lightbox-in,
+  .animate-lightbox-out,
+  .animate-lightbox-image {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

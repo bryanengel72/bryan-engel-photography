@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { breadcrumbLd } from "@/lib/breadcrumb";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Services & Pricing",
@@ -90,7 +91,7 @@ export default function ServicesPage() {
       />
 
       <section className="mx-auto max-w-7xl px-6 pb-20 pt-36 lg:px-10">
-        <header className="mb-14 max-w-3xl">
+        <Reveal as="header" className="mb-14 max-w-3xl">
           <p className="eyebrow">Services</p>
           <h1 className="font-display mt-3 text-5xl text-bone sm:text-6xl">
             Sessions for athletes who put in the work
@@ -100,12 +101,13 @@ export default function ServicesPage() {
             physique you&apos;ve earned. Pricing below is a starting point — reach out
             and I&apos;ll put together something that fits.
           </p>
-        </header>
+        </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {packages.map((p) => (
-            <div
+          {packages.map((p, i) => (
+            <Reveal
               key={p.name}
+              delay={i * 100}
               className={`flex flex-col rounded-2xl border p-8 ${
                 p.featured
                   ? "border-amber/50 bg-stone ring-1 ring-amber/30"
@@ -130,15 +132,15 @@ export default function ServicesPage() {
               </ul>
               <Link
                 href="/contact"
-                className={`mt-8 rounded-full px-6 py-3 text-center text-sm font-semibold uppercase tracking-widest transition-colors ${
+                className={`mt-8 rounded-full px-6 py-3 text-center text-sm font-semibold uppercase tracking-widest transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 ${
                   p.featured
-                    ? "bg-amber text-ink hover:bg-amber-bright"
+                    ? "bg-amber text-ink hover:bg-amber-bright hover:shadow-lg hover:shadow-amber/20"
                     : "border border-bone/25 text-bone hover:border-bone hover:bg-bone/5"
                 }`}
               >
                 Inquire
               </Link>
-            </div>
+            </Reveal>
           ))}
         </div>
         <p className="mt-6 text-center text-xs text-muted">
@@ -149,16 +151,18 @@ export default function ServicesPage() {
       {/* FAQ */}
       <section className="border-t border-white/5 bg-charcoal">
         <div className="mx-auto max-w-3xl px-6 py-24 lg:px-10">
-          <p className="eyebrow text-center">FAQ</p>
-          <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
-            Good to know
-          </h2>
+          <Reveal>
+            <p className="eyebrow text-center">FAQ</p>
+            <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
+              Good to know
+            </h2>
+          </Reveal>
           <dl className="mt-12 divide-y divide-white/5">
-            {faqs.map((f) => (
-              <div key={f.q} className="py-6">
+            {faqs.map((f, i) => (
+              <Reveal key={f.q} as="div" delay={i * 80} className="py-6">
                 <dt className="font-display text-xl text-bone">{f.q}</dt>
                 <dd className="mt-2 leading-relaxed text-muted">{f.a}</dd>
-              </div>
+              </Reveal>
             ))}
           </dl>
         </div>

@@ -3,6 +3,7 @@ import { Inter, Bebas_Neue } from "next/font/google";
 import { site } from "@/lib/site";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import "./globals.css";
 
 const inter = Inter({
@@ -121,9 +122,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${bebas.variable}`}>
       <body>
+        <noscript>
+          <style>{`.reveal{opacity:1!important;transform:none!important;}`}</style>
+        </noscript>
         <StructuredData />
         <Nav />
-        <main>{children}</main>
+        <main>
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>

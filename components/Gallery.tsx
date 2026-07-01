@@ -1,13 +1,24 @@
 "use client";
 
-import Image from "next/image";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import type { Photo } from "@/lib/getPhotos";
+import Reveal from "@/components/Reveal";
+import FadeImage from "@/components/FadeImage";
+
+const LIGHTBOX_CLOSE_MS = 200;
 
 export default function Gallery({ photos }: { photos: Photo[] }) {
   const [active, setActive] = useState<number | null>(null);
+  const [closing, setClosing] = useState(false);
+  const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const close = useCallback(() => setActive(null), []);
+  const close = useCallback(() => {
+    setClosing(true);
+    closeTimeout.current = setTimeout(() => {
+      setActive(null);
+      setClosing(false);
+    }, LIGHTBOX_CLOSE_MS);
+  }, []);
   const next = useCallback(
     () => setActive((i) => (i === null ? i : (i + 1) % photos.length)),
     [photos.length]
@@ -16,6 +27,12 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
     () => setActive((i) => (i === null ? i : (i - 1 + photos.length) % photos.length)),
     [photos.length]
   );
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (active === null) return;
@@ -36,27 +53,30 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
     <>
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
         {photos.map((p, i) => (
-          <button
-            key={p.src}
-            onClick={() => setActive(i)}
-            className="group relative block w-full overflow-hidden rounded-lg img-fallback focus:outline-none focus:ring-2 focus:ring-amber"
-            aria-label={`Open photo ${i + 1} full screen`}
-          >
-            <Image
-              src={p.src}
-              alt={p.alt}
-              width={0}
-              height={0}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-            />
-          </button>
+          <Reveal key={p.src} delay={(i % 6) * 60}>
+            <button
+              onClick={() => setActive(i)}
+              className="group relative block w-full overflow-hidden rounded-lg img-fallback focus:outline-none focus:ring-2 focus:ring-amber"
+              aria-label={`Open photo ${i + 1} full screen`}
+            >
+              <FadeImage
+                src={p.src}
+                alt={p.alt}
+                width={0}
+                height={0}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+            </button>
+          </Reveal>
         ))}
       </div>
 
       {active !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4"
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 ${
+            closing ? "animate-lightbox-out" : "animate-lightbox-in"
+          }`}
           onClick={close}
           role="dialog"
           aria-modal="true"
@@ -78,8 +98,12 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
           >
             ‹
           </button>
-          <figure className="max-h-[88vh] max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <Image
+          <figure
+            key={active}
+            className="animate-lightbox-image max-h-[88vh] max-w-5xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <FadeImage
               src={photos[active].src}
               alt={photos[active].alt}
               width={0}

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { site } from "@/lib/site";
 import { getPhotos } from "@/lib/getPhotos";
 import Gallery from "@/components/Gallery";
+import Reveal from "@/components/Reveal";
+import FadeImage from "@/components/FadeImage";
 
 const services = [
   {
@@ -27,7 +28,7 @@ const testimonials = [
   },
   {
     quote:
-      "I’ve shot with Bryan multiple times for a reason — he’s good, artistic, and knows how to bring out the best angles and lighting on stage and off.",
+      "I’ve shot with Bryan multiple times for a reason: he’s good, artistic, and knows how to bring out the best angles and lighting.",
     name: "Jill",
   },
   {
@@ -52,13 +53,13 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-[92vh] items-center overflow-hidden">
-        <Image
+        <FadeImage
           src={heroSrc}
           alt={`${site.name} — fitness and physique competition photography in ${site.location.city}`}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="animate-kenburns object-cover object-center"
         />
         <div className="absolute inset-0 vignette" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent" />
@@ -90,13 +91,13 @@ export default function Home() {
           >
             <Link
               href="/contact"
-              className="rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
+              className="rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-bright hover:shadow-lg hover:shadow-amber/20 active:translate-y-0"
             >
               Book Your Shoot
             </Link>
             <Link
               href="/portfolio"
-              className="rounded-full border border-bone/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-bone transition-colors hover:border-bone hover:bg-bone/5"
+              className="rounded-full border border-bone/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-bone transition-all duration-300 hover:-translate-y-0.5 hover:border-bone hover:bg-bone/5 active:translate-y-0"
             >
               View Portfolio
             </Link>
@@ -134,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* INTRO */}
-      <section className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
+      <Reveal as="section" className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
         <p className="eyebrow">Bryan Engel Photography</p>
         <h2 className="font-display mt-4 text-4xl text-bone sm:text-5xl">
           The conditioning is the hard part.
@@ -146,44 +147,52 @@ export default function Home() {
           under the lights. I make sure that work lives on in images worthy of it — whether
           you compete in bodybuilding, bikini, figure, wellness, or men&apos;s physique.
         </p>
-      </section>
+      </Reveal>
 
       {/* FEATURED GALLERY */}
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-        <div className="mb-10 flex items-end justify-between">
+        <Reveal className="mb-10 flex items-end justify-between">
           <div>
             <p className="eyebrow">Selected Work</p>
             <h2 className="font-display mt-2 text-4xl text-bone sm:text-5xl">Recent shoots</h2>
           </div>
           <Link
             href="/portfolio"
-            className="hidden text-sm font-semibold uppercase tracking-widest text-amber transition-colors hover:text-amber-bright sm:block"
+            className="group hidden text-sm font-semibold uppercase tracking-widest text-amber transition-colors hover:text-amber-bright sm:block"
           >
-            See all →
+            See all{" "}
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
           </Link>
-        </div>
+        </Reveal>
         <Gallery photos={featured} />
         <div className="mt-10 text-center sm:hidden">
-          <Link href="/portfolio" className="text-sm font-semibold uppercase tracking-widest text-amber">
-            See full portfolio →
+          <Link href="/portfolio" className="group text-sm font-semibold uppercase tracking-widest text-amber">
+            See full portfolio{" "}
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </div>
       </section>
 
       {/* TESTIMONIALS — placeholder copy, swap in real client quotes */}
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-        <p className="eyebrow text-center">What Athletes Say</p>
-        <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
-          Trusted by competitors
-        </h2>
+        <Reveal>
+          <p className="eyebrow text-center">What Athletes Say</p>
+          <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
+            Trusted by competitors
+          </h2>
+        </Reveal>
         <div className="mt-14 grid gap-8 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <div key={i} className="rounded-2xl border border-white/5 bg-stone p-8">
+            <Reveal key={i} delay={i * 100} className="rounded-2xl border border-white/5 bg-stone p-8">
               <p className="leading-relaxed text-bone/80">&ldquo;{t.quote}&rdquo;</p>
               <p className="mt-5 text-sm font-semibold uppercase tracking-widest text-amber">
                 {t.name}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -191,49 +200,53 @@ export default function Home() {
       {/* SERVICES */}
       <section className="border-y border-white/5 bg-charcoal">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-          <p className="eyebrow text-center">What I Shoot</p>
-          <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
-            Built for competitors
-          </h2>
+          <Reveal>
+            <p className="eyebrow text-center">What I Shoot</p>
+            <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
+              Built for competitors
+            </h2>
+          </Reveal>
           <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {services.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-white/5 bg-stone p-8">
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 100} className="rounded-2xl border border-white/5 bg-stone p-8">
                 <h3 className="font-display text-2xl text-amber">{s.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{s.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <Reveal className="mt-12 text-center">
             <Link
               href="/services"
-              className="rounded-full border border-bone/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-bone transition-colors hover:border-bone hover:bg-bone/5"
+              className="rounded-full border border-bone/25 px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-bone transition-all duration-300 hover:-translate-y-0.5 hover:border-bone hover:bg-bone/5 active:translate-y-0"
             >
               Explore Services & Pricing
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* PROCESS */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <p className="eyebrow text-center">How It Works</p>
-        <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
-          Simple from consult to gallery
-        </h2>
+        <Reveal>
+          <p className="eyebrow text-center">How It Works</p>
+          <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
+            Simple from consult to gallery
+          </h2>
+        </Reveal>
         <div className="mt-14 grid gap-10 md:grid-cols-3">
-          {steps.map((s) => (
-            <div key={s.n} className="text-center">
+          {steps.map((s, i) => (
+            <Reveal key={s.n} delay={i * 100} className="text-center">
               <p className="font-display text-6xl text-white/10">{s.n}</p>
               <h3 className="font-display -mt-6 text-2xl text-bone">{s.t}</h3>
               <p className="mt-3 leading-relaxed text-muted">{s.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* CTA */}
       <section className="border-t border-white/5 bg-charcoal">
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
+        <Reveal className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10">
           <h2 className="font-display text-5xl text-bone sm:text-6xl">
             Stepping on stage soon?
           </h2>
@@ -243,11 +256,11 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="mt-9 inline-block rounded-full bg-amber px-10 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
+            className="mt-9 inline-block rounded-full bg-amber px-10 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-bright hover:shadow-lg hover:shadow-amber/20 active:translate-y-0"
           >
             Get in Touch
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   );

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { breadcrumbLd } from "@/lib/breadcrumb";
+import Reveal from "@/components/Reveal";
+import FadeImage from "@/components/FadeImage";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,17 +19,17 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd("/about", "About")) }}
       />
       <div className="grid items-center gap-14 lg:grid-cols-2">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl img-fallback">
-          <Image
+        <Reveal className="relative aspect-[4/5] overflow-hidden rounded-2xl img-fallback">
+          <FadeImage
             src="/images/bryan-headshot.png"
             alt={`Bryan Engel — fitness and physique photographer in ${site.location.city}`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={120}>
           <p className="eyebrow">About</p>
           <h1 className="font-display mt-3 text-5xl text-bone sm:text-6xl">
             I photograph the payoff
@@ -54,11 +55,11 @@ export default function AboutPage() {
           </div>
           <Link
             href="/contact"
-            className="mt-9 inline-block rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
+            className="mt-9 inline-block rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-bright hover:shadow-lg hover:shadow-amber/20 active:translate-y-0"
           >
             Work With Me
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

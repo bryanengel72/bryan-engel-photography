@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { getPhotos } from "@/lib/getPhotos";
 import { breadcrumbLd } from "@/lib/breadcrumb";
 import Gallery from "@/components/Gallery";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -18,7 +19,7 @@ export default function PortfolioPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd("/portfolio", "Portfolio")) }}
       />
-      <header className="mb-12 max-w-3xl">
+      <Reveal as="header" className="mb-12 max-w-3xl">
         <p className="eyebrow">Portfolio</p>
         <h1 className="font-display mt-3 text-5xl text-bone sm:text-6xl">
           Athletes at their sharpest
@@ -29,7 +30,7 @@ export default function PortfolioPage() {
           Now based in {site.location.city}, booking local competitors. Tap any image to
           view it full screen.
         </p>
-      </header>
+      </Reveal>
       <Gallery photos={photos} />
     </section>
   );

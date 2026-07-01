@@ -42,7 +42,7 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="flex h-full flex-col items-center justify-center py-16 text-center">
+      <div className="animate-hero-in flex h-full flex-col items-center justify-center py-16 text-center">
         <p className="font-display text-4xl text-bone">Got it.</p>
         <p className="mt-3 text-muted">
           I&apos;ll be in touch soon. Keep doing the work.
@@ -102,7 +102,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-full bg-amber px-8 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright disabled:opacity-60 sm:w-auto"
+        className="w-full rounded-full bg-amber px-8 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-bright hover:shadow-lg hover:shadow-amber/20 active:translate-y-0 disabled:pointer-events-none disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none sm:w-auto"
       >
         {status === "sending" ? "Sending…" : "Send Inquiry"}
       </button>
