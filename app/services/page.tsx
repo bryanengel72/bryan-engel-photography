@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Services & Pricing",
@@ -82,6 +83,10 @@ export default function ServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd("/services", "Services")) }}
       />
 
       <section className="mx-auto max-w-7xl px-6 pb-20 pt-36 lg:px-10">

@@ -21,10 +21,10 @@ const bebas = Bebas_Neue({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline} in ${site.location.city}`,
-    template: `%s · ${site.name}`,
+    default: `${site.shortName} | Fitness & Physique Photographer in ${site.location.city}`,
+    template: `%s · ${site.shortName}`,
   },
-  description: site.description,
+  description: site.metaDescription,
   keywords: [
     "fitness photographer",
     "physique photography",
@@ -99,6 +99,10 @@ function StructuredData() {
       "Fitness modeling",
     ],
     sameAs: Object.values(site.social).filter(Boolean),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".eyebrow"],
+    },
   };
 
   return (

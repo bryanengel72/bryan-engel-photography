@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site, navLinks } from "@/lib/site";
 
 export default function Footer() {
-  const year = 2026;
+  const year = new Date().getFullYear();
   const socials = Object.entries(site.social).filter(([, url]) => url);
 
   return (
@@ -68,7 +68,10 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/5 pt-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {site.name}. All rights reserved.
+            © {year} {site.name}. All rights reserved. ·{" "}
+            <Link href="/privacy" className="transition-colors hover:text-bone">
+              Privacy Policy
+            </Link>
           </p>
           <p>{site.tagline}</p>
         </div>

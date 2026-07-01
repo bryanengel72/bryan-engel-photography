@@ -14,8 +14,26 @@ const services = [
     body: "Polished images for your coach, your sponsors, and your athlete profile across socials.",
   },
   {
-    title: "Posing Sessions",
-    body: "Lighting that reveals your lines. I shoot the poses you compete in, so you see exactly what the judges will.",
+    title: "Off-Stage Sessions",
+    body: "No stage, no strict poses — just you, your physique, and clothes you'd actually wear. A relaxed shoot to show off the work outside of competition.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Bryan was very professional and his photos were so good. He captured my physique exactly how I wanted and made the whole experience easy.",
+    name: "Michelle",
+  },
+  {
+    quote:
+      "I’ve shot with Bryan multiple times for a reason — he’s good, artistic, and knows how to bring out the best angles and lighting on stage and off.",
+    name: "Jill",
+  },
+  {
+    quote:
+      "I call Bryan every year to do photos because I really enjoy working with him. The sessions are relaxed, and the images always come out sharp and polished.",
+    name: "Kat",
   },
 ];
 
@@ -46,16 +64,30 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 pt-24 lg:px-10">
-          <p className="eyebrow mb-5">{site.location.city} · {site.location.regionFull}</p>
-          <h1 className="font-display max-w-3xl text-6xl text-bone sm:text-7xl lg:text-8xl">
-            Photography for athletes
+          <p
+            className="eyebrow animate-hero-in mb-5"
+            style={{ animationDelay: "0ms" }}
+          >
+            {site.location.city} · {site.location.regionFull}
+          </p>
+          <h1
+            className="font-display animate-hero-in max-w-3xl text-6xl text-bone drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)] sm:text-7xl lg:text-8xl"
+            style={{ letterSpacing: "-0.02em", animationDelay: "80ms" }}
+          >
+            Built for the athletes
             <br />
             <span className="text-amber">who step on stage.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-bone/80">
+          <p
+            className="animate-hero-in mt-6 max-w-xl text-lg leading-relaxed text-bone/80"
+            style={{ animationDelay: "180ms" }}
+          >
             {site.description}
           </p>
-          <div className="mt-9 flex flex-wrap gap-4">
+          <div
+            className="animate-hero-in mt-9 flex flex-wrap items-center gap-4"
+            style={{ animationDelay: "280ms" }}
+          >
             <Link
               href="/contact"
               className="rounded-full bg-amber px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-amber-bright"
@@ -68,6 +100,35 @@ export default function Home() {
             >
               View Portfolio
             </Link>
+          </div>
+          <p
+            className="animate-hero-in mt-6 text-xs font-semibold uppercase tracking-widest text-bone/50"
+            style={{ animationDelay: "360ms" }}
+          >
+            12 years photographing competitors
+          </p>
+        </div>
+
+        <div className="absolute inset-x-0 bottom-8 hidden justify-center sm:flex">
+          <div className="animate-scroll-cue flex flex-col items-center gap-2 text-bone/50">
+            <span className="text-[10px] font-semibold uppercase tracking-widest">
+              Scroll
+            </span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 5L8 11L14 5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </div>
         </div>
       </section>
@@ -106,6 +167,24 @@ export default function Home() {
           <Link href="/portfolio" className="text-sm font-semibold uppercase tracking-widest text-amber">
             See full portfolio →
           </Link>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS — placeholder copy, swap in real client quotes */}
+      <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+        <p className="eyebrow text-center">What Athletes Say</p>
+        <h2 className="font-display mt-2 text-center text-4xl text-bone sm:text-5xl">
+          Trusted by competitors
+        </h2>
+        <div className="mt-14 grid gap-8 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <div key={i} className="rounded-2xl border border-white/5 bg-stone p-8">
+              <p className="leading-relaxed text-bone/80">&ldquo;{t.quote}&rdquo;</p>
+              <p className="mt-5 text-sm font-semibold uppercase tracking-widest text-amber">
+                {t.name}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

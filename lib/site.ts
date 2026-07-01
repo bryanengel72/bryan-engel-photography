@@ -11,6 +11,12 @@ export const site = {
   description:
     "Stage-ready fitness and physique photography for bodybuilding, bikini, figure, and men's physique competitors. Bryan Engel Photography captures the conditioning, power, and artistry of athletes who step on stage.",
 
+  // Shorter version for <meta name="description"> — Google truncates around
+  // 155-160 characters, so this is used for SERP/meta tags while the longer
+  // `description` above stays on-page as body copy.
+  metaDescription:
+    "Stage-ready fitness & physique photography for bodybuilding, bikini, figure, and men's physique competitors in San Diego, CA. Book your shoot.",
+
   // ⬇️  CHANGE THIS to your real domain once you have one (no trailing slash).
   url: "https://www.bryanengelphotography.com",
 

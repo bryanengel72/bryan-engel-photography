@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24 pt-36 lg:px-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd("/contact", "Contact")) }}
+      />
       <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr]">
         <div>
           <p className="eyebrow">Contact</p>

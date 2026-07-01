@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { breadcrumbLd } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,12 +13,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-36 lg:px-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd("/about", "About")) }}
+      />
       <div className="grid items-center gap-14 lg:grid-cols-2">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl img-fallback">
-          {/* Swap this for a portrait of yourself: drop it in public/images/ and update the src */}
           <Image
-            src="/images/portfolio/photo-04.jpg"
-            alt={`${site.name} — fitness photographer in ${site.location.city}`}
+            src="/images/bryan-headshot.png"
+            alt={`Bryan Engel — fitness and physique photographer in ${site.location.city}`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
