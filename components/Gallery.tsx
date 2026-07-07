@@ -66,6 +66,7 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
                 height={0}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                priority={i < 3}
               />
             </button>
           </Reveal>

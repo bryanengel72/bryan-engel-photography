@@ -17,8 +17,10 @@ export const site = {
   metaDescription:
     "Stage-ready fitness & physique photography for bodybuilding, bikini, figure, and men's physique competitors in San Diego, CA. Book your shoot.",
 
-  // ⬇️  CHANGE THIS to your real domain once you have one (no trailing slash).
-  url: "https://www.bryanengelphotography.com",
+  // Live domain (no trailing slash). Vercel serves the site at the apex
+  // domain and redirects www → apex, so this must stay non-www to keep
+  // canonicals/sitemap/OG pointing at the URL that actually serves 200.
+  url: "https://bryanengelphotography.com",
 
   // ⬇️  Local SEO — update to your actual service area.
   location: {
